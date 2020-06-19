@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TodoList from './components/TodoList'
+import NewTodo from './components/NewTodo'
 
 const App: React.FC = () => {
+
   const todos = [
     {
       id: 't1',
@@ -9,9 +11,15 @@ const App: React.FC = () => {
     }
   ]
 
+  const todoHandler = (text: string) => {
+    console.log(text)
+  }
+
+
   return (
     <div className="App">
-      <TodoList items={todos}/>
+      <NewTodo todoHandler={todoHandler} />
+      <TodoList items={todos} />
     </div>
   );
 }
