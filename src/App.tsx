@@ -18,11 +18,17 @@ const App: React.FC = () => {
     ])
   }
 
+  const handleDelete = (id: string) => {
+    setTodos(prevTodos => {
+      return prevTodos.filter(todo => todo.id !== id)
+    })
+  }
+
 
   return (
     <div className="App">
       <NewTodo todoHandler={todoHandler} />
-      <TodoList items={todos} />
+      <TodoList items={todos} handleDelete={handleDelete}/>
     </div>
   );
 }
