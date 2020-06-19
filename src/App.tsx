@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import TodoList from './components/TodoList'
 import NewTodo from './components/NewTodo'
 
+import { Todo } from './models/todo.model'
+
 const App: React.FC = () => {
 
-  const todos = [
-    {
-      id: 't1',
-      text: 'first todo'
-    }
-  ]
+  const [todos, setTodos] = useState<Todo[]>([])
 
   const todoHandler = (text: string) => {
-    console.log(text)
+    setTodos([{
+      id: Math.random().toString(),
+      text
+    }])
   }
 
 
